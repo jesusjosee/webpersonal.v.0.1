@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+  
+  
+
+	    <!-- Cabecera -->
+	    <header class="masthead" style="background-image: url('{% static 'core/img/portfolio-bg.jpg' %}')">
+	      <div class="overlay"></div>
+	      <div class="container">
+	        <div class="row">
+	          <div class="col-lg-8 col-md-10 mx-auto">
+	            <div class="site-heading">
+	              <h1>Portafolio</h1>
+	              <span class="subheading">Currículo</span>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </header>
+
+	
+			<!-- Cards -->
+		  <div class="container">
+			<div class="row" style="font-family: 'Gentium Basic', serif;">
+				
+				{% for p in  proyectos %}
+					
+					
+				<div class="col-lg-3 col-md-4">
+				  <div class="card mb-4  shadow  rounded" >
+					  
+					  {% if p.portada %}
+					  <img  src="{{p.portada.url}}" style="height: 138px"  alt="">
+					  {% else %}
+					  <img src="{% static 'core/img/en-construccion.png' %}" style="height: 138px; " alt="">
+					  {% endif %}
+						  
+					<div class="card-body">
+					  <div class="title">
+						<h3>{{p.title}}</h3>
+						<p>{{p.description | truncatewords:15}}</p>
+						
+						  
+							{% if p.url %}
+							<a href="{{p.url}}" class="btn btn-sm btn-warning
+							 rounded" target="_blank">Ver más</a>
+								
+							{% endif %}
+					  </div>
+					</div>
+				  </div>
+				</div>
+				
+				{% empty %}
+				<div class="col-lg-3 col-md-4">
+					<div class="card mb-4  shadow  rounded" >
+						
+						<img  src="{% static 'core/img/home-bg.jpg' %}" style="height: 138px"  alt="">
+						
+					  <div class="card-body">
+						<div class="title">
+						  <h3>My first project</h3>
+						  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio repellendus perferendis, dicta corporis fugit laboriosam. Libero nam, quis, doloremque vitae quidem possimus laboriosam, pariatur quibusdam nemo aliquid nobis tempore? Repudiandae.</p>
+											
+							  <a href="#" class="btn btn-sm btn-warning
+							   rounded" target="_blank">Ver más</a>
+								  
+							  
+						</div>
+					  </div>
+					</div>
+				  </div>
+				{% endfor %}
+
+			</div>
+		  </div>
+  
+		
+		  
+{% endblock content %}

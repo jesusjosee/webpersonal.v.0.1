@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+  
+  
+    <!-- Cabecera -->
+    <header class="masthead" style="background-image: url('{% static 'core/img/contact-bg.jpg' %}')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Contacto</h1>
+              <span class="subheading">Asesoría</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" style="font-family: 'Gentium Basic', serif !important ;
+        ;font-size: 27px">
+
+          
+          {% if obj %}
+          <div style="font-family: 'Gentium Basic', serif !important ;font-size: 30px;">
+            <p >{{obj.description | safe }}</p>
+          </div>
+          <br>
+          <p><b>Teléfono:</b> {{obj.phone}}</p>
+          
+              {% if obj.email %}
+              <p><b>Email:</b> {{obj.email}}</p>
+              {% endif %}
+            
+          <p><b>Honorarios:</b> {{obj.price_per_hour}} USD/h (precio base)</p>
+          {% else %}
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
+          <br>
+          <p><b>Teléfono:</b> +09 876 543 210</p>
+          <p><b>Honorarios:</b> 10 USD/h (precio base)</p>
+          {% endif %}
+        </div>
+      </div>
+  </div>
+
+    {% endblock content %}

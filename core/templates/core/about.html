@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+  
+  
+
+    <!-- Cabecera -->
+    <header class="masthead" style="background-image: url('{% static 'core/img/about-bg.jpg' %}')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Acerca de</h1>
+              <span class="subheading">Biografía</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <div class="container">
+      <div class="row">   
+        <div class="col-lg-3 col-md-4 offset-lg-1">
+          {% if obj.image %}
+          <img class="img-fluid avatar" src="{{obj.image.url}}" alt="">
+          {% else %}
+          <img class="img-fluid avatar" src="{% static 'core/img/avatar.png' %}" alt="">
+          {% endif %}
+        </div>
+        
+       
+          
+        <div class="col-lg-7 col-md-8" style="font-family: 'Gentium Basic', serif !important ;
+        font-size: 24px;">
+          {% if obj.title %}
+          <h2 class="section-heading">{{obj.title}}</h2>   
+          {% else %}
+          <h2 class="section-heading">Jesús Suyón</h2>   
+          {% endif %}
+
+          
+          {% if obj.description %}
+          <p >{{obj.description | safe}}</p>
+          {% else %}
+          <p>Nacido en... lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit...</p>
+          {% endif %}
+            
+        </div>
+
+      </div>  
+    </div>
+{% endblock content %}
