@@ -41,12 +41,12 @@
 					<div class="card-body">
 					  <div class="title">
 						<h3>{{p.title}}</h3>
-						<p>{{p.description | truncatewords:15}}</p>
+						<p>{{p.description | truncatewords:30}}</p>
 						
 						  
 							{% if p.url %}
 							<a href="{{p.url}}" class="btn btn-sm btn-warning
-							 rounded" target="_blank">Ver más</a>
+							 rounded" target="_blank">see project</a>
 								
 							{% endif %}
 					  </div>
